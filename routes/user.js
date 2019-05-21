@@ -57,7 +57,7 @@ router.post('/user/register', (req, res, next) => {
     });
 console.log("user recebido")
 console.log(user)
-    if (user.password.length < 5) {
+    if (user.email.length < 1) {
         errors.push({ msg: "A senha precisa conter mais do que cinco caracteres" });
         res.status(500).json({ error: errors });
 

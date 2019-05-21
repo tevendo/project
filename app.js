@@ -29,10 +29,8 @@ const userRoutes = require('./routes/user')
 const emailRoutes = require('./routes/email')
 
 var uri = "mongodb+srv://tevendo:tevendo@cluster0-6cjnc.mongodb.net/test?retryWrites=true";
-MongoClient.connect(uri,{useNewUrlParser:true},function(err,client){
-    console.log("conectado");
+MongoClient.connect(uri,{useNewUrlParser:true,  useCreateIndex: true,
 });
-
 app.use('/api', advRoutes);
 app.use('/api', categoryRoutes);
 app.use('/api', subCategoryRoutes);
@@ -47,6 +45,7 @@ app.use('/api', emailRoutes);
 // app.use('/api/v1', router);
 
 app.use((req, res, next) => {
+    console.log("rodando api")
 
     const error = new Error('Not found');
     error.status(404)
