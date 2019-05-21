@@ -47,7 +47,7 @@ app.use('/api', emailRoutes);
 // app.use('/api/v1', router);
 
 app.use((req, res, next) => {
-
+    res.send("<h1>TEVENDO API</h1>")
     const error = new Error('Not found');
     error.status(404)
     next(error);
