@@ -37,7 +37,9 @@ router.post('/adv',upload.single("productIdImage"),(req,res,next) =>{
         _id: new mongoose.Types.ObjectId(),
         name: req.body.name,
         title: req.body.title,
-        price: req.body.price
+        price: req.body.price,
+        subcategory: req.body.subcategoryId,
+        category: req.body.categoryId
     });
      console.log("salvando");
     adv.save().then(result => {
@@ -49,5 +51,10 @@ router.post('/adv',upload.single("productIdImage"),(req,res,next) =>{
         message:'handle gest request'
     });
 });
+
+
+
+
+
 
 module.exports = router;
