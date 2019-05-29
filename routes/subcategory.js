@@ -27,6 +27,8 @@ router.post('/subcategory', (req,res, next) => {
                 error:err
         });
     });
+
+    
     res.status(201).json({
         message:"SubCategoria Criada",
         subCategory:subCategory

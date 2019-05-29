@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const morgan = require('morgan');
+var cors = require('cors');
 
 const bodyParser = require('body-parser')
 // const mongoose = require('mongoose')
@@ -8,6 +9,7 @@ var MongoClient = require("mongoose")
 
 
 app.use(morgan('dev'));
+app.use(cors()); 
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())

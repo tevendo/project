@@ -37,18 +37,15 @@ router.post('/category',(req,res,next) =>{
 
         _id: new mongoose.Types.ObjectId(),
         name: req.body.name,
-        adv: req.body.advId,
-
         description: req.body.description
     });
      
     category.save().then(result => {
+        res.status(200).json(result);
 
         console.log(result);
     }).catch(err => console.log(err));
 
-    res.status(201).json({
-        message:'handle gest request'
-    });
 });
+
 module.exports = router;

@@ -2,11 +2,9 @@ const mongoose = require('mongoose');
 
 const categorySchemma = mongoose.Schema({
  _id: mongoose.Schema.Types.ObjectId,
- 
- name:{type:String, require:true},
+ name:{type:String, require:true,unique:true},
  description:{type:String, require:false},
  createdAt:{type:Date, default:Date.Now},
- adv:{type: mongoose.Schema.ObjectId, ref:'adv',required:true},
 
 
 });

@@ -52,9 +52,8 @@ router.post('/user/register', (req, res, next) => {
         _id: new mongoose.Types.ObjectId(),
 
         name: req.body.name,
-        email: req.body.email,
-        password: req.body.password
-    });
+        email: req.body.email
+        });
 console.log("user recebido")
 console.log(user)
     if (user.email.length < 1) {

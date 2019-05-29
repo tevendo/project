@@ -13,6 +13,8 @@ function sendEmail(
     textContent,
     htmlContent
   ) {
+    console.log("Enviando emails para : ----------------------------")
+    console.log(toEmails);
     const errorEmails = [];
     const successfulEmails = [];
      const sg = require('sendgrid')   ('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');
@@ -56,12 +58,16 @@ function sendEmail(
 
 router.post('/send', (req, res, next) => {
   console.log("enviando email")
+
+
+
+
     async.parallel([
         function (callback) {
           sendEmail(
             callback,
-            'samueljoshua1@hotmail.com',
-            ['samueljoshua@live.com','vinicius.batista17@gmail.com','gustavocomp@gmail.com'],
+            req.body.sender,
+             [req.body.email],
             'Tevendo 2019 Apresentação',
             'Teste',
             '<h1 style="font-size: 32px;color:blue;">Apresentamos nosso novo website de vendas</h1>'
